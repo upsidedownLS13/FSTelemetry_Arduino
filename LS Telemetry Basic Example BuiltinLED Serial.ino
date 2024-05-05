@@ -1,7 +1,7 @@
 // Example file for Farming Simulator Telemetry project.
 // Install ArduinoJson by Benoit Blanchon (can be done via Arduino IDE) min version 7.0
 //
-// This example reads left indicator, right indicator and motor rpm (current, min, max) for the current vehicle. 
+// This example reads both left indicator and right indicator for the current vehicle.
 // Right indicator is send to the inbuilt LED to keep this example as simple as possible.
 // 
 // Use this example to build your own hardware.
