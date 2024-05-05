@@ -1,7 +1,7 @@
 // Example file for Farming Simulator Telemetry project.
 // Install ArduinoJson by Benoit Blanchon (can be done via Arduino IDE) min version 7.0
 //
-// This example reads both left indicator and right indicator for the current vehicle.
+// This example reads both left indicator and right indicator for the current vehicle. 
 // Right indicator is send to the inbuilt LED to keep this example as simple as possible.
 // 
 // Use this example to build your own hardware.
@@ -31,7 +31,6 @@ void loop() {
   }
   
   if(doc.size()>0){
-
     if(doc.containsKey("IsLightTurnRightOn")){      
       indR = doc["IsLightTurnRightOn"].as<bool>();
     }else{
@@ -42,17 +41,12 @@ void loop() {
     }else{
       sendRequests();
     }
-
-
-
-
   }else{
     sendRequests();
     return;
   }
 
-
-  digitalWrite(LED_BUILTIN,indR);
+  digitalWrite(LED_BUILTIN,indR); //This is where we actually do something with the information we got from the server.
 }
 
 // this code is used to minimize memory usage due to huge JSON strings being sent to the controller.
