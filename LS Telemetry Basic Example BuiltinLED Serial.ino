@@ -16,15 +16,11 @@ void setup() {
   pinMode(LED_BUILTIN,OUTPUT);
 }
 
-JsonDocument doc;
+JsonDocument doc; //place to store the streamed data from the telemetry server
 
+//here we make a set of global variables to store the converted values. This is far from the most sophisticated programming style, but for this purpose it is simple, transparent and easy to adapt for beginners.
 bool indL = false;
 bool indR = false;
-float RPM = 0.0f;
-float RPMMin = 0.0f;
-float RPMMax = 0.0f;
-
-
 
 void loop() {
   deserializeJson(doc, Serial);
@@ -66,8 +62,4 @@ void sendRequests(){
   Serial.println(F("clr")); //tell the Telemetry server to forget the wishlist for this specific client
   Serial.println(F("req:IsLightTurnLeftOn")); //adds a single item "IsLightTurnLeftOn" to the wishlist for this specific client.
   Serial.println(F("req:IsLightTurnRightOn"));
-
-  Serial.println(F("req:RPM"));  
-  Serial.println(F("req:RPMMin"));  
-  Serial.println(F("req:RPMMax"));  
 }
